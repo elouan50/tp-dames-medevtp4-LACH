@@ -12,7 +12,7 @@ public class Joueur {
         int nbpion = 0;
         for (int i = 0; i < plateau.getNbCol(); i++) {
             for (int j = 0; j < plateau.getNbRow(); j++) {
-               if (plateau.getPlateau().get(i).get(j).getPion()== couleur ) {
+               if (plateau.getPlateau().get(i).get(j).getPion().getCouleur()== couleur ) {
                 nbpion++;
                }
             }
