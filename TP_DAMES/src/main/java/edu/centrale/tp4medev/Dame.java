@@ -18,14 +18,18 @@ public class Dame {
                 // Cas d'une diagonale /
                 if (i.getX()<=f.getX()) {
                     for (int j=i.getX()+1 ; j<f.getX() ; j++) {
-                        if (p[j][i.getX()+i.getY()-j].getPion()==i.getPion()) {
-                            return false;
+                        if (p[j][i.getX()+i.getY()-j].getPion() != null) {
+                            if (p[j][i.getX()+i.getY()-j].getPion().getCouleur()==i.getPion().getCouleur()) {
+                                return false;
+                            }
                         }
                     }
                 } else {
                     for (int j=f.getX()+1 ; j<i.getX() ; j++) {
-                        if (p[j][i.getX()+i.getY()-j].getPion()==i.getPion()) {
-                            return false;
+                        if (p[j][i.getX()+i.getY()-j].getPion() != null) {
+                            if (p[j][i.getX()+i.getY()-j].getPion().getCouleur()==i.getPion().getCouleur()) {
+                                return false;
+                            }
                         }
                     }
                 }
@@ -33,14 +37,18 @@ public class Dame {
                 // Cas d'une diagonale \
                 if (i.getX()<=f.getX()) {
                     for (int j=i.getX()+1 ; j<f.getX() ; j++) {
-                        if (p[j][j-i.getX()+i.getY()].getPion()==i.getPion()) {
-                            return false;
+                        if (p[j][j-i.getX()+i.getY()].getPion() != null) {
+                            if (p[j][j-i.getX()+i.getY()].getPion().getCouleur()==i.getPion().getCouleur()) {
+                                return false;
+                            }
                         }
                     }
                 } else {
                     for (int j=f.getX()+1 ; j<i.getX() ; j++) {
-                        if (p[j][j-i.getX()+i.getY()].getPion()==i.getPion()) {
-                            return false;
+                        if (p[j][j-i.getX()+i.getY()].getPion() != null) {
+                            if (p[j][j-i.getX()+i.getY()].getPion().getCouleur()==i.getPion().getCouleur()) {
+                                return false;
+                            }
                         }
                     }
                 }
