@@ -21,17 +21,18 @@ public class Case {
      * @param p
      */
     public Case(int x, int y, Pion p) {
-        this.x = x ;
-        this.y = y ;
-        this.p = p ;
+        this.x = x;
+        this.y = y;
+        this.p = p;
     }
 
     public boolean jouable() {
         boolean jouable;
-        if (((x+y)%2==0)||(p != null)){
+        if (((x + y) % 2 == 0) || (p != null)) {
             jouable = false;
+        } else {
+            jouable = true;
         }
-        else {jouable = true;}            
         return jouable;
     }
 
@@ -40,7 +41,7 @@ public class Case {
     }
 
     public void setX(int x) {
-         this.x = x;
+        this.x = x;
     }
 
     public int getY() {
@@ -51,14 +52,12 @@ public class Case {
         this.y = y;
     }
 
-    public boolean getPion() {
-        return p.getCouleur();
+    public Pion getPion() {
+        return p;
     }
 
-    public void setPion( Pion p) {
-        this. p = p;
+    public void setPion(Pion p) {
+        this.p = p;
     }
-
-
 
 }

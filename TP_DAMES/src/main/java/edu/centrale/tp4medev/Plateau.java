@@ -39,10 +39,10 @@ public class Plateau {
         for (int i = 0; i<nbCol; i++) {
             System.out.print(i + "  ");
             for (int j = 0; j<nbRow; j++) {
-                if (plateau.get(i).get(j).Pion() == null) {
+                if (plateau.get(i).get(j).getPion() == null) {
                     System.out.print("  ");
                 } else {
-                    Pion p = plateau.get(i).get(j).Pion();
+                    Pion p = plateau.get(i).get(j).getPion();
                     if (p.getCouleur()) {
                         System.out.print(" 1 ");
                     } else {
