@@ -51,12 +51,38 @@ public class Dame {
 
 
     @Override
-    public void manger(Case) {
-
+    public void manger(Case c) {
+        if (c.getPion() != null){
+            c.setPion(null);
+        }
     }
 
     @Override
-    public void deplacer(Case i, Case f) {
-        
+    public void deplacer(Case i, Case f, Plateau p) {
+        if (deplace_possible(i,f,p)) {
+            if (i.getX()+i.getY() == f.getX()+f.getY()) {
+                // Cas d'une diagonale /
+                if (i.getX()<=f.getX()) {
+                    for (int j=i.getX()+1 ; j<f.getX() ; j++) {
+                        this.manger(p[j][i.getX()+i.getY()-j]);
+                    }
+                } else {
+                    for (int j=f.getX()+1 ; j<i.getX() ; j++) {
+                        this.manger(p[j][i.getX()+i.getY()-j]);
+                    }
+                }
+            } else if(i.getX()-i.getY() == f.getX()-f.getY()){
+                // Cas d'une diagonale \
+                if (i.getX()<=f.getX()) {
+                    for (int j=i.getX()+1 ; j<f.getX() ; j++) {
+                        this.manger(p[j][j-i.getX()+i.getY()]);
+                    }
+                } else {
+                    for (int j=f.getX()+1 ; j<i.getX() ; j++) {
+                        this.manger(p[j][j-i.getX()+i.getY()]);
+                    }
+                }
+            }
+        }
     }
 }
