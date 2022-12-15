@@ -39,7 +39,7 @@ public class Case {
         return x;
     }
 
-    public setX(int x) {
+    public void setX(int x) {
          this.x = x;
     }
 
@@ -47,7 +47,7 @@ public class Case {
         return y;
     }
 
-    public setY(int y) {
+    public void setY(int y) {
         this.y = y;
     }
 
@@ -55,7 +55,7 @@ public class Case {
         return p.getCouleur();
     }
 
-    public setPion( Pion p) {
+    public void setPion( Pion p) {
         this. p = p;
     }
 
