@@ -18,14 +18,18 @@ public class Dame {
                 // Cas d'une diagonale /
                 if (i.getX()<=f.getX()) {
                     for (int j=i.getX()+1 ; j<f.getX() ; j++) {
-                        if (p[j][i.getX()+i.getY()-j].getPion()==i.getPion()) {
-                            return false;
+                        if (p[j][i.getX()+i.getY()-j].getPion() != null) {
+                            if (p[j][i.getX()+i.getY()-j].getPion().getCouleur()==i.getPion().getCouleur()) {
+                                return false;
+                            }
                         }
                     }
                 } else {
                     for (int j=f.getX()+1 ; j<i.getX() ; j++) {
-                        if (p[j][i.getX()+i.getY()-j].getPion()==i.getPion()) {
-                            return false;
+                        if (p[j][i.getX()+i.getY()-j].getPion() != null) {
+                            if (p[j][i.getX()+i.getY()-j].getPion().getCouleur()==i.getPion().getCouleur()) {
+                                return false;
+                            }
                         }
                     }
                 }
@@ -33,14 +37,18 @@ public class Dame {
                 // Cas d'une diagonale \
                 if (i.getX()<=f.getX()) {
                     for (int j=i.getX()+1 ; j<f.getX() ; j++) {
-                        if (p[j][j-i.getX()+i.getY()].getPion()==i.getPion()) {
-                            return false;
+                        if (p[j][j-i.getX()+i.getY()].getPion() != null) {
+                            if (p[j][j-i.getX()+i.getY()].getPion().getCouleur()==i.getPion().getCouleur()) {
+                                return false;
+                            }
                         }
                     }
                 } else {
                     for (int j=f.getX()+1 ; j<i.getX() ; j++) {
-                        if (p[j][j-i.getX()+i.getY()].getPion()==i.getPion()) {
-                            return false;
+                        if (p[j][j-i.getX()+i.getY()].getPion() != null) {
+                            if (p[j][j-i.getX()+i.getY()].getPion().getCouleur()==i.getPion().getCouleur()) {
+                                return false;
+                            }
                         }
                     }
                 }
@@ -51,12 +59,41 @@ public class Dame {
 
 
     @Override
-    public void manger(Case) {
-
+    public void manger(Case c) {
+        if (c.getPion() != null){
+            c.setPion(null);
+        }
     }
 
     @Override
-    public void deplacer(Case i, Case f) {
-        
+    public void deplacer(Case i, Case f, Plateau p) {
+        if (deplace_possible(i,f,p)) {
+            if (i.getX()+i.getY() == f.getX()+f.getY()) {
+                // Cas d'une diagonale /
+                if (i.getX()<=f.getX()) {
+                    for (int j=i.getX()+1 ; j<f.getX() ; j++) {
+                        this.manger(p[j][i.getX()+i.getY()-j]);
+                    }
+                } else {
+                    for (int j=f.getX()+1 ; j<i.getX() ; j++) {
+                        this.manger(p[j][i.getX()+i.getY()-j]);
+                    }
+                }
+            } else if(i.getX()-i.getY() == f.getX()-f.getY()){
+                // Cas d'une diagonale \
+                if (i.getX()<=f.getX()) {
+                    for (int j=i.getX()+1 ; j<f.getX() ; j++) {
+                        this.manger(p[j][j-i.getX()+i.getY()]);
+                    }
+                } else {
+                    for (int j=f.getX()+1 ; j<i.getX() ; j++) {
+                        this.manger(p[j][j-i.getX()+i.getY()]);
+                    }
+                }
+            }
+        } else {
+            System.out.println("Le déplacement n'est pas possible.");
+            System.out.println(" ");
+        }
     }
 }
