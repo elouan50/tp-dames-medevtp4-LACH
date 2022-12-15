@@ -13,27 +13,41 @@ public class Dame {
     }
 
     public boolean deplace_possible(Case i, Case f, Plateau p) {
+        if (f.getPion()==i.getPion()){
+            return false;
+        }
         if (i.getX()+i.getY() == f.getX()+f.getY()) {
             // Cas d'une diagonale /
             if (i.getX()<=f.getX()) {
                 for (int j=i.getX()+1 ; j<f.getX() ; j++) {
-                    if () {
-                        retrun false;
+                    if (p[j][i.getX()+i.getY()-j].getPion()==i.getPion()) {
+                        return false;
                     }
                 }
             } else {
                 for (int j=f.getX()+1 ; j<i.getX() ; j++) {
-                    if () {
+                    if (p[j][i.getX()+i.getY()-j].getPion()==i.getPion()) {
                         return false;
                     }
                 }
             }
         } else if(i.getX()-i.getY() == f.getX()-f.getY()){
             // Cas d'une diagonale \
-            if () {
-
+            if (i.getX()<=f.getX()) {
+                for (int j=i.getX()+1 ; j<f.getX() ; j++) {
+                    if (p[j][j-i.getX()+i.getY()].getPion()==i.getPion()) {
+                        return false;
+                    }
+                }
+            } else {
+                for (int j=f.getX()+1 ; j<i.getX() ; j++) {
+                    if (p[j][j-i.getX()+i.getY()].getPion()==i.getPion()) {
+                        return false;
+                    }
+                }
             }
-        } 
+        }
+        return true;
     }
 
 
