@@ -28,11 +28,37 @@ public class Case {
 
     public boolean jouable() {
         boolean jouable;
-        if ((x+y)%2==0){
+        if (((x+y)%2==0)||(p != null)){
             jouable = false;
         }
-        else { jouable = true;}
+        else {jouable = true;}            
         return jouable;
     }
+
+    public int getX() {
+        return x;
+    }
+
+    public setX(int x) {
+         this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public setY(int y) {
+        this.y = y;
+    }
+
+    public boolean getPion() {
+        return p.getCouleur();
+    }
+
+    public setPion( Pion p) {
+        this. p = p;
+    }
+
+
 
 }
