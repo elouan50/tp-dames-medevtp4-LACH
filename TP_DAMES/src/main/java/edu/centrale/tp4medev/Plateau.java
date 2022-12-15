@@ -34,4 +34,52 @@ public class Plateau {
         }
     }
 
+    public void affiche() {
+        System.out.println("     A  B  C  D  E  F  G  H  I  J");
+        for (int i = 0; i<nbCol; i++) {
+            System.out.print(i + "  ");
+            for (int j = 0; j<nbRow; j++) {
+                if (plateau.get(i).get(j).getPion() == null) {
+                    System.out.print("  ");
+                } else {
+                    Pion p = plateau.get(i).get(j).getPion();
+                    if (p.getCouleur()) {
+                        System.out.print(" 1 ");
+                    } else {
+                        System.out.println(" 0 ");
+                    }
+                }
+            }
+            System.out.println("  i");
+            System.out.println();
+        }
+        System.out.println("     A  B  C  D  E  F  G  H  I  J");
+    }
+
+    public int getNbCol() {
+        return this.nbCol;
+    }
+
+    public void setNbCol(int nbCol) {
+        this.nbCol = nbCol;
+    }
+
+    public int getNbRow() {
+        return this.nbRow;
+    }
+
+    public void setNbRow(int nbRow) {
+        this.nbRow = nbRow;
+    }
+
+    public List<List<Case>> getPlateau() {
+        return this.plateau;
+    }
+
+    public void setPlateau(List<List<Case>> plateau) {
+        this.plateau = plateau;
+    }
+
+
+
 }
