@@ -83,6 +83,9 @@ public class Dame {
                     }
                 }
             }
+        } else {
+            System.out.println("Le déplacement n'est pas possible.");
+            System.out.println(" ");
         }
     }
 }
