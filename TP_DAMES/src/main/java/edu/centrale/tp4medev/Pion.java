@@ -1,7 +1,7 @@
 package edu.centrale.tp4medev;
 
 public class Pion {
-    private bool couleur; 
+    private boolean couleur; 
     // noir : 0 
     // blanc : 1 
 
@@ -11,17 +11,17 @@ public class Pion {
         this.couleur=false; // couleur par défaut
     }
 
-    public Pion(bool c){
+    public Pion(boolean c){
         this.couleur=c;
     }
 
     //Getters
-    public getCouleur(){
+    public boolean getCouleur(){
         return this.couleur;
     }
 
     //Setters 
-    public setCouleur(bool c){
+    public void setCouleur(boolean c){
         this.couleur=c;
     }
 
